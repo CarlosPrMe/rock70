@@ -1,0 +1,59 @@
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -1rem;
+
+  &--center {
+    align-items: center;
+  }
+
+  &--end {
+    align-items: flex-end;
+  }
+
+  &--between {
+    justify-content: space-between;
+  }
+}
+
+[class^="col"] {
+  flex: 1 0 auto;
+  padding: 0 1rem;
+}
+
+@include mobile-xs {
+  @for $i from 2 through 12 {
+    .col-xs-#{$i} {
+      flex-basis: calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+}
+
+@include mobile {
+  @for $i from 2 through 12 {
+    .col-sm-#{$i} {
+      flex-basis: calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+}
+
+@include tablet {
+  @for $i from 2 through 12 {
+    .col-md-#{$i} {
+      flex-basis: calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+}
+
+@include desktop {
+  @for $i from 2 through 12 {
+    .col-lg-#{$i} {
+      flex-basis: calc((#{$i} / 12) * 100%);
+      max-width: calc((#{$i} / 12) * 100%);
+    }
+  }
+}

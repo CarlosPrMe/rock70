@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400;600&display=swap');
+
+$ff-title: 'Montserrat', sans-serif;
+$ff-main: 'Roboto', sans-serif;
+
+.h1,
+.h2,
+.h3,
+.h4 {
+  font-family: $ff-title;
+}
+
+.h1 {
+  font-size: $fs-xl;
+}
+
+.h2 {
+  font-size: $fs-l;
+}
+
+.h3 {
+  font-size: $fs-md;
+}
+
+.h4 {
+  font-size: $fs-sm;
+}

@@ -1,0 +1,59 @@
+@import "../partials/vars";
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: .4rem;
+  box-shadow: 0 0 1rem rgba($black, .4);
+  color: $white;
+  position: relative;
+
+  &--disabled {
+    pointer-events: none;
+    opacity: .4;
+  }
+
+  &__group,
+  &__control,
+  &__input {
+    display: block;
+    width: 100%;
+    position: relative;
+  }
+
+  &__group {
+    margin-bottom: 1rem;
+  }
+
+  &__input {
+    border: .1rem solid $transparent;
+    border-radius: .5rem;
+    height: 3.8rem;
+    font-size: $fs-base - .3rem;
+    padding: 0 1.5rem;
+    outline: none;
+    transition: all $normal linear;
+
+    &::placeholder {
+      color: $gray-500;
+    }
+
+    &:focus {
+      border: .1rem solid $gray-700;
+    }
+
+    &--custom {
+      position: absolute;
+      left: -9999rem;
+    }
+  }
+
+  &__label {
+    margin-bottom: .5rem;
+    font-size: $fs-sm;
+    display: block;
+    transition: all $normal ease;
+  }
+}

@@ -1,0 +1,52 @@
+@mixin mobile-xs {
+  @media screen and (min-width: 300px) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media screen and (min-width: 768px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: 992px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: 1200px) {
+    @content;
+  }
+}
+
+@mixin customScrollBar(
+  $mainColor: $primary,
+  $secColor: $secondary,
+  $auxColor: $white,
+  $width: 0.8rem,
+  $height: 0.8rem,
+  $borderRad: 0.4rem,
+  $margin: 1rem
+) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: $height;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: $mainColor;
+    border-radius: $borderRad;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: $secColor;
+    box-shadow: 0 0 0.2rem 0.1rem rgba(0, 0, 0, 0.2);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: $auxColor;
+    margin: $margin;
+  }
+}
