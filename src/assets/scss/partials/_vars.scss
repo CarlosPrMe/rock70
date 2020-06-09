@@ -1,8 +1,8 @@
-@import './mixins';
+@import "./mixins";
 
 // Font size
 
-$fs-xl: 6.5rem;
+$fs-xl: 10.5rem;
 $fs-l: 3rem;
 $fs-md: 2.5rem;
 $fs-base: 1.6rem;
@@ -73,3 +73,20 @@ $desktop: 120rem;
   }
 }
 
+@keyframes showMore {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(2rem);
+  }
+}
+
+@keyframes resalt {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.2);
+  }
+}

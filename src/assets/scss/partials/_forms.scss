@@ -28,7 +28,7 @@
   }
 
   &__input {
-    border: .1rem solid $transparent;
+    border: .1rem solid $gray-500;
     border-radius: .5rem;
     height: 3.8rem;
     font-size: $fs-base - .3rem;
@@ -52,7 +52,7 @@
 
   &__label {
     margin-bottom: .5rem;
-    font-size: $fs-sm;
+    // font-size: $fs-sm;
     display: block;
     transition: all $normal ease;
   }

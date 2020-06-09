@@ -1,0 +1,19 @@
+@import "../../../assets/scss/partials/vars";
+
+.main-list {
+
+    &__title {
+        margin-bottom: 2rem;
+    }
+
+    &__list{
+        padding: 2rem 0;
+    }
+
+    &__item {
+        margin-bottom: 1.5rem;
+        @include desktop {
+            margin-bottom: 5.5rem;
+        }
+    }
+}
