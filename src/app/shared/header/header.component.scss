@@ -15,14 +15,6 @@
     position: relative;
     height: 100vh;
 
-    &__home {
-        display: none;
-        @include tablet {
-            display: inline-block;
-            padding: 0 0.5rem;
-        }
-    }
-
     @include mobile {
         height: 40rem;
     }
@@ -61,8 +53,11 @@
             position: relative;
             left: 1rem;
             @include desktop {
-                position: static;
-                align-self: center;
+                align-self: flex-start;
+                margin-top: 2.1rem;
+                height: 5.4rem;
+                font-size: 3.5rem;
+                margin-right: 2rem;
             }
         }
     }

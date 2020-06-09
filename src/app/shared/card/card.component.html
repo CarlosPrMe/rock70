@@ -1,9 +1,18 @@
-<a class="card" href="#" [routerLink]="['/band', band.id]">
+<a *ngIf="band" class="card" href="#" [routerLink]="['/band', band?.id]">
     <div class="card__sticker"></div>
     <div class="card__media-container">
-        <img class="card__media" src="{{band.image}}" alt="{{band.name}} logo">
+        <img class="card__media" src="{{band?.image}}" alt="{{band?.name}} logo">
     </div>
     <div class="card__data">
-        <span class="card__text h3">{{band.name}}</span>
+        <span class="card__text h3">{{band?.name}}</span>
+    </div>
+</a>
+<a *ngIf="!band" class="card" href="#" [routerLink]="['/add-band']">
+    <div class="card__sticker"></div>
+    <div class="card__media-container">
+        <span class="card__media card__media--empty"></span>
+    </div>
+    <div class="card__data">
+        <span class="card__text h3">Añade otra banda</span>
     </div>
 </a>

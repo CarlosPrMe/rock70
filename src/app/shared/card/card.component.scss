@@ -23,36 +23,7 @@
             }
         }
 
-        // &::before {
-        //     content: "";
-        //     position: absolute;
-        //     position: absolute;
-        //     display: block;
-        //     height: 2.5rem;
-        //     width: 6rem;
-        //     background-color: rgba(0, 0, 0, 0.4);
-        //     background-color: $gray-300;
-        //     left: -2.7rem;
-        //     top: -1rem;
-        //     transform: rotate(45deg);
-        //     z-index: $over;
-        // }
-        // &::after {
-        //     content: "";
-        //     position: absolute;
-        //     position: absolute;
-        //     display: block;
-        //     height: 2.5rem;
-        //     width: 6rem;
-        //     background-color: rgba(0, 0, 0, 0.4);
-        //     background-color: $gray-400;
-        //     right: -2.7rem;
-        //     top: -1rem;
-        //     transform: rotate(-45deg);
-        //     z-index: $over + 1;
-        // }
-
-        &__sticker{
+        &__sticker {
             position: absolute;
             width: 30%;
             height: 40px;
@@ -61,21 +32,20 @@
             box-shadow: 0.5rem 0.5rem 0.4rem -0.4rem rgba($black, 0.3);
             top: -3rem;
             left: 35%;
-    
+
             &::after {
                 content: "";
                 display: block;
                 position: absolute;
                 width: 0;
                 height: 0;
-                right: .8rem;
-                bottom: -.2rem;
-                border-top: .9rem solid #9ca63d;
-                border-right: .9rem solid transparent;
+                right: 0.8rem;
+                bottom: -0.2rem;
+                border-top: 0.9rem solid #9ca63d;
+                border-right: 0.9rem solid transparent;
                 transform: skew(-62deg, 8deg) rotate(15deg);
             }
         }
-
     }
 
     &__media-container {
@@ -91,6 +61,23 @@
 
         @include desktop {
             opacity: 0.6;
+        }
+
+        &--empty {
+            height: 100%;
+            width: 100%;
+            background-color: $gray-600;
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            &::before{
+                content: '+';
+                display: block;
+                font-size: $fs-xl;
+                font-weight: bold;
+                color: $white;
+            }
         }
     }
 

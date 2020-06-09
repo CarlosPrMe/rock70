@@ -16,14 +16,17 @@
     content: "";
     position: absolute;
     display: block;
-    bottom: -13%;
+    bottom: -19%;
     height: 26%;
     width: 120%;
     background-color: $white;
     transform: rotate(-5deg);
     left: -10%;
-    @include desktop {
-        z-index: $over;
+    z-index: $over;
+    
+    @include desktop{
+      bottom: -13%;
+
     }
 }
 
