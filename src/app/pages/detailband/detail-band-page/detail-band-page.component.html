@@ -47,10 +47,9 @@
                         <div class="col-xs-12 col-md-6 col-lg-8">
                             <h3 class="details__subtitle details__subtitle--ligth h2">Vídeo</h3>
                             <div class="details__media">
-                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OorZcOzNcgE"
-                                    frameborder="0"
+                                <iframe width="100%" height="100%" [src]="videoLink(band.video)" frameborder="0"
                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen></iframe>
+                                    webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -58,4 +57,9 @@
             </div>
         </div>
     </section>
+    <div class="container">
+        <div class="details__box">
+            <button type="button" class="btn" (click)="deleteBand()">Eliminar grupo</button>
+        </div>
+    </div>
 </main>
