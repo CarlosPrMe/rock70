@@ -1,0 +1,18 @@
+<div class="searcher" [ngClass]="{'searcher--show':show, 'searcher--fixed': !atHomePage}">
+    <div class="searcher__content">
+        <button type="button" class="btn searcher__btn" title="show searcher"
+            (click)="showInput()">
+            <span class="icon icon-search"></span>
+        </button>
+        <div class="searcher__form">
+            <form class="form" [formGroup]="myForm">
+                <div class="form__group">
+                    <input formControlName="searcher" type="text" name="searcher" id="searcher" class="form__input"
+                        placeholder="Nombre del grupo">
+                </div>
+            </form>
+            <app-predictive-results [show]="show"></app-predictive-results>
+        </div>
+    </div>
+
+</div>

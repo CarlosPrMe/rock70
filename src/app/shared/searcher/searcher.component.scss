@@ -1,0 +1,110 @@
+@import "../../../assets/scss/partials/vars";
+
+.searcher {
+    &__content {
+        position: relative;
+    }
+
+    &__form {
+        padding: 0 8rem 0 1rem;
+        transform: translateY(-110%);
+        border-bottom: 0.1rem solid $gray-500;
+        box-shadow: 0 1rem 1rem rgba($black, 0.3);
+        background-color: $white;
+        height: 10.5rem;
+        position: fixed;
+        left: 0rem;
+        top: 0;
+        transition: all $normal ease;
+        width: 100%;
+        z-index: $over;
+
+        @include tablet {
+            padding-right: 8rem;
+        }
+
+        @include desktop {
+            border-bottom: 0;
+            background-color: $transparent;
+            box-shadow: none;
+            overflow: hidden;
+            height: 0;
+            padding: 0;
+            position: relative;
+            transform: translateY(0);
+        }
+    }
+
+    &__btn {
+        color: $white;
+        width: auto;
+        font-size: $fs-l;
+        position: fixed;
+        right: 1rem;
+        top: 2.5rem;
+        background-color: rgba($gray-600, 0.5);
+        z-index: $top;
+
+        &:active {
+            color: $gray-800;
+        }
+
+        @include desktop {
+            background-color: $transparent;
+            position: static;
+            animation: resalt $slow linear alternate forwards;
+            animation-delay: initial;
+            animation-iteration-count: 6;
+            &:hover {
+                background-color: rgba($gray-600, 0.2);
+                color: $gray-800;
+                transform: scale(1.2);
+            }
+        }
+    }
+
+    &--show {
+        .searcher__form {
+            transform: translateY(0);
+
+            @include desktop {
+                height: auto;
+                .form {
+                    height: 12rem;
+                }
+            }
+        }
+    }
+
+    .form {
+        padding: 0;
+        box-shadow: none;
+        transition: all $normal ease;
+        &__group {
+            padding: 2rem 0;
+        }
+
+        &__input {
+            padding: 3rem 1.5rem;
+            font-size: $fs-base + 0.4rem;
+        }
+
+        @include desktop {
+            height: 0;
+        }
+    }
+
+    &--fixed {
+        @include desktop {
+            .searcher__btn {
+                display: none;
+            }
+            .searcher__form {
+                height: auto;
+            }
+            .form {
+                height: auto;
+            }
+        }
+    }
+}
