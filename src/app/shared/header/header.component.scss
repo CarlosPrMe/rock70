@@ -1,0 +1,80 @@
+@import "../../../assets/scss/partials/vars";
+
+.header {
+    background-color: $gray-100;
+    box-shadow: 0 0 1rem rgba($black, 0.3);
+    border-bottom: 0.1rem solid $gray-400;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+    transition: all $normal linear;
+    background-image: url("../../../assets/images/photo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center 90%;
+    color: $white;
+    position: relative;
+    height: 100vh;
+
+    &__home {
+        display: none;
+        @include tablet {
+            display: inline-block;
+            padding: 0 0.5rem;
+        }
+    }
+
+    @include mobile {
+        height: 40rem;
+    }
+
+    &__content {
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    &__title {
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    &__btn {
+        animation: showMore $slow linear alternate forwards;
+        animation-delay: initial;
+        animation-iteration-count: 6;
+        color: $white;
+        font-size: $fs-l;
+        position: absolute;
+        bottom: 2.5rem;
+        left: calc(50% - 2.5rem);
+        width: auto;
+
+        &:active {
+            color: $gray-800;
+        }
+
+        @include desktop {
+            display: none;
+        }
+
+        &--navigate {
+            position: relative;
+            left: 1rem;
+            @include desktop {
+                position: static;
+                align-self: center;
+            }
+        }
+    }
+
+    &--fixed {
+        height: 14rem;
+        background-position-y: 93%;
+
+        @include desktop {
+            position: fixed;
+            left: 0;
+            width: 100%;
+        }
+    }
+}

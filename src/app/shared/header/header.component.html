@@ -1,0 +1,26 @@
+<header class="header" #header [ngClass]="{'header--fixed':!atHomePage}">
+    <div class="container">
+        <div *ngIf="atHomePage then home; else noHome"> </div>
+    </div>
+</header>
+
+<ng-template #home>
+    <div class="header__content">
+        <h1 class="h1 header__title">{{title}}</h1>
+        <h2 class="h2 header__title">{{subTitle}}</h2>
+    </div>
+    <button type="button" class="btn header__btn header__btn--content" title="go to bands list"
+        (click)="scrollDown(translation)">
+        <span class="icon icon-arrow-down2"></span>
+    </button>
+    <app-searcher [atHomePage]="atHomePage"></app-searcher>
+</ng-template>
+
+<ng-template #noHome>
+    <div class="row">
+        <a class="col-xs-2 btn btn--primary header__btn--navigate" href="#" [routerLink]="['/home']"> <span
+                class="icon icon-home3"></span><span class="header__home">Ir a home</span></a>
+        <app-searcher class="col-lg-10" [atHomePage]="atHomePage"></app-searcher>
+
+    </div>
+</ng-template>
