@@ -4,3 +4,49 @@
   padding: 1rem;
 }
 
+.decoration {
+  max-width: $desktop;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  &::before {
+    content: "";
+    position: absolute;
+    display: block;
+    bottom: -13%;
+    height: 26%;
+    width: 120%;
+    background-color: $white;
+    transform: rotate(-5deg);
+    left: -10%;
+    @include desktop {
+        z-index: $over;
+    }
+}
+
+  &::after {
+    content: "";
+    border-top-right-radius: 100%;
+    position: absolute;
+    top: -13%;
+    height: 28%;
+    width: 200%;
+    background-color: $white;
+    transform: rotate(-5deg) skewX(-5deg);
+    left: -2.5%;
+    left: -50%;
+    z-index: $over;
+  }
+
+  &__img{
+    position: absolute;
+    left: 0;
+    top:0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba($primary, 0.6);
+  }
+}

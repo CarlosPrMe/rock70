@@ -1,0 +1,61 @@
+<app-header></app-header>
+
+<main>
+    <div class="container">
+        <div class="details__header">
+            <h1 class="details__title">{{band.name}}</h1>
+            <img class="details__header-img" src="{{band.logo}}" alt="logo of {{band.name}}">
+        </div>
+    </div>
+
+    <section>
+        <div class="decoration" style="background-image: url({{band.image}});">
+            <div class="decoration__img"></div>
+            <div class="container">
+                <div class="details__content">
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <h3 class="details__subtitle h2">Miembros</h3>
+                            <ul class="details__list">
+                                <li class="details__list-item" *ngFor="let member of band.members">
+                                    <span class="details__data">{{member.name}}</span>
+                                    <span class="details__data">{{member.sur_name}}</span>
+                                    <img class="details__avatar" src="{{member.image}}" alt="image of {{member.name}}">
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-8">
+                            <h3 class="details__subtitle h2">Biografía</h3>
+                            <p class="details__text">{{band.bio}}</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-6 col-lg-4">
+                            <h3 class="details__subtitle details__subtitle--ligth h2">Discografía</h3>
+                            <ul class="details__list" [ngClass]="{'details__list--limited': !showDetails}">
+                                <li class="details__list-item" *ngFor="let album of band.discography">
+                                    <img class="details__img" src="{{album.cover}}"
+                                        alt="album of {{band}} titled {{album.name}}">
+                                    <span class="details__data">{{album.name}} - ( {{album.year}} )</span>
+                                </li>
+                                <button type="button" class="btn btn--primary details__btn" (click)="showMore()"
+                                    [ngClass]="{'details__btn--rotate':showDetails }">
+                                    <span class="icon icon-arrow-down2"></span>
+                                </button>
+                            </ul>
+                        </div>
+                        <div class="col-xs-12 col-md-6 col-lg-8">
+                            <h3 class="details__subtitle details__subtitle--ligth h2">Vídeo</h3>
+                            <div class="details__media">
+                                <iframe width="100%" height="100%" src="https://www.youtube.com/embed/OorZcOzNcgE"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                                    allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
