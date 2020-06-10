@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { BandModel } from 'src/app/models/band.model';
 
 @Component({
@@ -6,14 +6,10 @@ import { BandModel } from 'src/app/models/band.model';
   templateUrl: './predictive-results.component.html',
   styleUrls: ['./predictive-results.component.scss']
 })
-export class PredictiveResultsComponent implements OnInit {
+export class PredictiveResultsComponent {
 
   @Input('bands') bands: Array<BandModel>;
-  @Output() navigate = new EventEmitter<number>()
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Output() navigate = new EventEmitter<number>();
 
   public navigation(event, id) {
     event.preventDefault();

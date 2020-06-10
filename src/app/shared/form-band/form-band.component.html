@@ -1,6 +1,5 @@
 <form [formGroup]="myForm" class="form">
     <h2 class="form__title">Datos del grupo</h2>
-
     <div class="form__group">
         <input formControlName="name" type="text" class="form__input" id="name" placeholder="Nombre del grupo" required
             [ngClass]="{'error':myForm.controls.name.dirty && !myForm.controls.name.valid }">
@@ -29,7 +28,6 @@
                 incorrecto *</span>
         </div>
     </div>
-
     <div class="form__group">
         <textarea class="form__textarea" formControlName="bio" name="" id="bio" cols="30" rows="10"
             placeholder="Biografia" required minlength="300"
@@ -43,7 +41,6 @@
             <span *ngIf="myForm.controls.bio.errors.minlength" class="error__text"> * Mínimo 300 caracteres *</span>
         </div>
     </div>
-
     <div class="form__group">
         <input formControlName="video" type="text" class="form__input" id="video"
             placeholder="Formato embebido (https://www.youtube.com/embed/...)">
@@ -84,7 +81,6 @@
             <button type="button" class="btn btn--secondary" (click)="addAlbum()">Añadir</button>
         </div>
     </div>
-
     <div class="form__group form__group--btn">
         <button type="button" class="btn btn--primary" [disabled]="!myForm.valid"
             (click)="submit(myForm.value)">Enviar</button>

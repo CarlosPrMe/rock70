@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { BandModel } from 'src/app/models/band.model';
 import { BandsService } from 'src/app/services/bands.service';
 import { Router } from '@angular/router';
@@ -8,11 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './add-band-page.component.html',
   styleUrls: ['./add-band-page.component.scss']
 })
-export class AddBandPageComponent implements OnInit {
+export class AddBandPageComponent {
 
   constructor(private bandsService: BandsService, private _router: Router) { }
-
-  ngOnInit(): void { }
 
   public onNewBand(band: BandModel) {
     this.bandsService.addBand(band).subscribe(res => {
@@ -23,6 +21,5 @@ export class AddBandPageComponent implements OnInit {
     }, err => {
       alert('Hubo un error al añadir la banda');
     })
-
   }
 }

@@ -16,6 +16,7 @@ export class DetailBandPageComponent implements OnInit {
   public showDetails: boolean;
   public video: SafeResourceUrl
   private _confirmDelete: boolean;
+
   constructor(private _activate: ActivatedRoute, private _mockService: MockService,
     private _saneticer: DomSanitizer, private _bandsService: BandsService, private _router: Router) { }
 
@@ -41,7 +42,7 @@ export class DetailBandPageComponent implements OnInit {
   }
 
   public showMore() {
-    this.showDetails = !this.showDetails
+    this.showDetails = !this.showDetails;
   }
 
   private _videoLink(video) {

@@ -17,6 +17,4 @@ export class SpinnerComponent implements OnInit {
       this.showSpinner = res;
     });
   }
-
 }
-

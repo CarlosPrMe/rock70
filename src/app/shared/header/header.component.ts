@@ -7,13 +7,11 @@ import { Component, OnInit, ViewChild, ElementRef, AfterViewChecked, Input } fro
 })
 export class HeaderComponent implements OnInit, AfterViewChecked {
 
-  constructor() { }
-
-  public title: string;
-  public subTitle: string;
-  public showSearcher: boolean
   @Input() atHomePage: boolean;
   @ViewChild('header') header: ElementRef;
+  public title: string;
+  public subTitle: string;
+  public showSearcher: boolean;
   public translation: number;
 
   ngOnInit(): void {

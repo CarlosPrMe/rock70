@@ -12,11 +12,10 @@ import { customValidatorImage } from '../../validators/customValidator';
 export class FormBandComponent implements OnInit {
 
   public myForm: FormGroup;
-  @Output() newBand = new EventEmitter<BandModel>()
+  @Output() newBand = new EventEmitter<BandModel>();
   constructor(private _fb: FormBuilder) { }
 
   ngOnInit(): void {
-
     this.myForm = this._fb.group({
       name: ['', Validators.required],
       logo: ['', Validators.compose([customValidatorUrl, customValidatorImage])],
@@ -41,6 +40,7 @@ export class FormBandComponent implements OnInit {
   get members() {
     return this.myForm.get('members') as FormArray;
   }
+  
   get discography() {
     return this.myForm.get('discography') as FormArray;
   }

@@ -8,7 +8,6 @@ export class SpinnerService {
 
   public show: boolean = false;
   public changeShow = new BehaviorSubject(this.show);
-  constructor() { }
 
   public changeSpinnerState() {
     this.show = !this.show;

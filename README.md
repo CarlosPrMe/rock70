@@ -2,9 +2,14 @@
 
 Aplicación para seguir y añadir tus bandas favoritas de los años 70.
 
-## Development server
+## Development
 
-Ejecuta `npm start` para levantar el proyecto (JsonServer incluido, con `ng serve`no tenemos el servidor). Empieza a navegar en `http://localhost:4200/`. Podrás añadir, eliminar y visualizar la información de las bandas.
+Para compilar y ejecutar la aplicación en desarrollo es necesario seguir estos pasos:
+
+1. Instalar las dependencias del proyecto: `npm install`.
+2. Compilar e iniciar la aplicación junto con el servidor de mocks (`json-server`): `npm start`.
+
+Empieza a navegar en `http://localhost:4200/`. Podrás añadir, eliminar y visualizar la información de las bandas.
 
 ## Detalles de las pantallas
 

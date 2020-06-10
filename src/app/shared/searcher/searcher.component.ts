@@ -14,17 +14,15 @@ export class SearcherComponent implements OnInit {
 
   public show: boolean;
   public myForm: FormGroup;
-  @Input() atHomePage: boolean;
   public bands;
+  @Input() atHomePage: boolean;
   constructor(private _fb: FormBuilder, private _bandsService: BandsService, private _router: Router) { }
 
   ngOnInit(): void {
     this.show = false;
-
     this.myForm = this._fb.group({
       searcher: ['']
     })
-
 
     this.myForm.valueChanges
       .pipe(

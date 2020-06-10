@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BandModel } from 'src/app/models/band.model';
 
 @Component({
@@ -6,13 +6,8 @@ import { BandModel } from 'src/app/models/band.model';
   templateUrl: './main-list.component.html',
   styleUrls: ['./main-list.component.scss']
 })
-export class MainListComponent implements OnInit {
-
+export class MainListComponent {
 
   @Input() bands: Array<BandModel>
-
-  constructor() { }
-
-  ngOnInit(): void { }
 
 }

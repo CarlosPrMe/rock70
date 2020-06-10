@@ -1,13 +1,10 @@
 import { Injectable } from '@angular/core';
-import { BandModel } from '../models/band.model';
-import { of, Observable } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 
 export class MockService {
-
     private _avatars: Array<string> = [
         'https://lh3.googleusercontent.com/-d-cldq0iIFQ/WpakxI3OXoI/AAAAAAAAOs0/v7lpT9KuFvMWyYUlcFBvonmUTFcfkbFhACHMYCw/avatar-santi%255B2%255D?imgmax=800',
         'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRHWAoQ916iRw6xL3xgw8ebhq_XYl6yhiFeq1DMQuQRqLmOR7vv2g&s',
@@ -35,7 +32,6 @@ export class MockService {
         'https://i.pinimg.com/originals/f4/3f/f6/f43ff637123a27d304607a200f00d6b7.jpg',
         'https://img.discogs.com/NSOIyffMBX8b34mypx5JutbBCrU=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/R-7274707-1449237862-5435.jpeg.jpg'
     ]
-    constructor() { }
 
     public setAvatar(): string {
         let num = Math.round(Math.random() * ((this._avatars.length - 1) - 0) + 0);

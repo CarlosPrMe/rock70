@@ -8,12 +8,14 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
+
 export class HomePageComponent implements OnInit {
 
   public atHomePage: boolean;
+  public bands: Array<BandModel>;
 
   constructor(private _activate: ActivatedRoute, private bandsServices: BandsService) { }
-  public bands: Array<BandModel>
+
   ngOnInit(): void {
     this.bands = this._activate.snapshot.data.bands;
     this.atHomePage = true;
