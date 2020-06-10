@@ -6,11 +6,11 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class SpinnerService {
 
-  public show:boolean = false;
+  public show: boolean = false;
   public changeShow = new BehaviorSubject(this.show);
   constructor() { }
 
-  changeSpinnerState(){
+  public changeSpinnerState() {
     this.show = !this.show;
     this.changeShow.next(this.show);
   }

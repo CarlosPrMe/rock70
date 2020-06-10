@@ -50,16 +50,38 @@
         }
 
         @include desktop {
-            background-color: $transparent;
-            position: static;
             animation: resalt $slow linear alternate forwards;
             animation-delay: initial;
             animation-iteration-count: 6;
+            background-color: $transparent;
+            border: 0.1rem solid $transparent;
+            position: static;
+            font-size: $fs-md;
             &:hover {
                 background-color: rgba($gray-600, 0.2);
                 color: $gray-800;
                 transform: scale(1.2);
             }
+
+            &:active {
+                background-color: rgba($white, 0.4);
+                border-color: $gray-800;
+                color: darken($primary, 15%);
+            }
+        }
+    }
+
+    &__icon {
+        display: block;
+        @include desktop {
+            display: none;
+        }
+    }
+
+    &__text {
+        display: none;
+        @include desktop {
+            display: block;
         }
     }
 

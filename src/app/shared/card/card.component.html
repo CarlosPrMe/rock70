@@ -1,7 +1,8 @@
 <a *ngIf="band" class="card" href="#" [routerLink]="['/band', band?.id]">
     <div class="card__sticker"></div>
     <div class="card__media-container">
-        <img class="card__media" src="{{band?.image}}" alt="{{band?.name}} logo">
+        <img *ngIf="band?.image" class="card__media" src="{{band?.image}}" alt="{{band?.name}} logo">
+        <img class="card__media" *ngIf="!band?.image" src="../../../assets/images/vinyl.jpg" alt="">
     </div>
     <div class="card__data">
         <span class="card__text h3">{{band?.name}}</span>

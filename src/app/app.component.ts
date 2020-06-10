@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
@@ -8,6 +8,7 @@ import { Router, NavigationEnd } from '@angular/router';
 })
 export class AppComponent implements OnInit {
   public title: string = 'rock70';
+  public scrollValue: number;
 
   constructor(private _router: Router) { }
 
@@ -17,5 +18,10 @@ export class AppComponent implements OnInit {
         window.scroll(0, 0);
       }
     })
+  }
+
+  @HostListener('window:scroll', ['$event'])
+  onWindowScroll($event) {
+    this.scrollValue = window.pageYOffset
   }
 }

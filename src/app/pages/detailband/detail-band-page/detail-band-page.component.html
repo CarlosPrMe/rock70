@@ -10,7 +10,10 @@
 
     <section>
         <div class="decoration" style="background-image: url({{band.image}});">
-            <div class="decoration__img"></div>
+            <div *ngIf="!band.image" class="decoration__img">
+                <img src="../../../../assets/images/vinyl.jpg" alt="">
+            </div>
+            <div class="decoration__layer"></div>
             <div class="container">
                 <div class="details__content">
                     <div class="row">
@@ -32,22 +35,22 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-4">
                             <h3 class="details__subtitle details__subtitle--ligth h2">Discografía</h3>
-                            <ul class="details__list" [ngClass]="{'details__list--limited': !showDetails}">
+                            <ul class="details__list" [ngClass]="{'details__list--limited': band.discography.length > 3 && !showDetails}">
                                 <li class="details__list-item" *ngFor="let album of band.discography">
                                     <img class="details__img" src="{{album.cover}}"
                                         alt="album of {{band}} titled {{album.name}}">
                                     <span class="details__data">{{album.name}} - ( {{album.year}} )</span>
                                 </li>
-                                <button type="button" class="btn btn--primary details__btn" (click)="showMore()"
+                                <button *ngIf="band.discography.length > 3" type="button" class="btn btn--primary details__btn" (click)="showMore()"
                                     [ngClass]="{'details__btn--rotate':showDetails }">
                                     <span class="icon icon-arrow-down2"></span>
                                 </button>
                             </ul>
                         </div>
-                        <div class="col-xs-12 col-md-6 col-lg-8">
+                        <div class="col-xs-12 col-md-6 col-lg-8"*ngIf="band.video">
                             <h3 class="details__subtitle details__subtitle--ligth h2">Vídeo</h3>
                             <div class="details__media">
-                                <iframe width="100%" height="100%" [src]="videoLink(band.video)" frameborder="0"
+                                <iframe width="100%" height="100%" [src]="video" frameborder="0"
                                     allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
                                     webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
                             </div>
@@ -59,7 +62,7 @@
     </section>
     <div class="container">
         <div class="details__box">
-            <button type="button" class="btn" (click)="deleteBand()">Eliminar grupo</button>
+            <button type="button" class="btn" (click)="deleteBand(band.id)">Eliminar grupo</button>
         </div>
     </div>
 </main>

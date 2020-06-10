@@ -4,6 +4,7 @@ import { HomePageComponent } from './pages/home/home.component';
 import { DetailBandPageComponent } from './pages/detailband/detail-band-page/detail-band-page.component';
 import { BandsResolver } from './resolvers/bands.resolver';
 import { DetailBandResolver } from './resolvers/detailBand.resolver';
+import { AddBandPageComponent } from './pages/add-band-page/add-band-page.component';
 
 
 const routes: Routes = [
@@ -20,6 +21,10 @@ const routes: Routes = [
     resolve: {
       band: DetailBandResolver
     }
+  },
+  {
+    path: 'add-band',
+    component: AddBandPageComponent
   },
   {
     path: '',

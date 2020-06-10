@@ -1,0 +1,17 @@
+.error {
+    border-color: $danger;
+    
+    &__msg {
+        color: $danger;
+        animation: showIn $normal ease-in;
+        animation-fill-mode: forwards;
+        border-radius: 0.4rem;
+        display: block;
+        padding: .5rem;
+        font-size: $fs-sm;
+    }
+
+    .icon {
+        margin-right: 1rem;
+    }
+}

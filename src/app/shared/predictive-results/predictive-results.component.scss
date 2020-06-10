@@ -11,10 +11,13 @@
     }
 
     &__list {
+        @include customScrollBar($primary, $primary, $gray-200, .8rem, .8rem, .5rem, 0);
         border: 0.1rem solid $gray-500;
         background-color: $white;
         border-bottom-left-radius: 0.5rem;
         border-bottom-right-radius: 0.5rem;
+        height: 12rem;
+        overflow-y: auto;
     }
 
     &__item {

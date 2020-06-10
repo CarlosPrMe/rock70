@@ -24,6 +24,10 @@
   transition: all $fast linear;
 
   @include desktop{
+
+    &:focus{
+      border: .1rem solid $gray-400;
+    }
     &:hover {
       background-color:darken($bg-color, 8%);
 
