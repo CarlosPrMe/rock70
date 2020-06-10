@@ -37,8 +37,17 @@ main {
 
     &__subtitle {
         margin-bottom: 2rem;
+
         &--ligth {
             color: $white;
+        }
+
+        &--both-colors{
+            color: $white;
+
+            @include tablet {
+                color: initial;
+            }
         }
     }
 

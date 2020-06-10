@@ -345,4 +345,8 @@ export class BandsService {
   public deleteBand(id: number): Observable<BandModel> {
     return this._http.delete<BandModel>(`api/bands/${id}`);
   }
+
+  public searchBand(name: string): Observable<BandModel> {
+    return this._http.get<BandModel>(`api/bands?q=${name}`);
+  }
 }

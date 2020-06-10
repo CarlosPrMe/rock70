@@ -21,18 +21,30 @@ export class DetailBandPageComponent implements OnInit {
 
   ngOnInit(): void {
     this.band = this._activate.snapshot.data.band;
-    this.band?.members?.forEach(m => !m.image ? m.image = this._mockService.setAvatar() : null); //Mock to show some images. Better with real photos
-    this.band?.discography?.forEach(a => !a.cover ? a.cover = this._mockService.setCover() : null); //Mock to show some images. Better with real photos
+    this.band = this._mockSomeData(this.band);
     this.showDetails = false;
     this._confirmDelete = false;
-    this.video = this.videoLink(this.band.video);
+    this._activate.params.subscribe(res => {
+      if (res.id) {
+        this._bandsService.getBandById(res.id).subscribe(band => {
+          this.band = this._mockSomeData(band);
+        })
+      }
+    })
+  }
+
+  private _mockSomeData(band): BandModel {
+    band.members?.forEach(m => !m.image ? m.image = this._mockService.setAvatar() : null); // Mock para fotos. Lo ideal sería que viniesen de la API
+    band.discography?.forEach(a => !a.cover ? a.cover = this._mockService.setCover() : null); // Mock para fotos. Lo ideal sería que viniesen de la API
+    this.video = this._videoLink(band.video);
+    return band;
   }
 
   public showMore() {
     this.showDetails = !this.showDetails
   }
 
-  public videoLink(video) {
+  private _videoLink(video) {
     return this._saneticer.bypassSecurityTrustResourceUrl(video);
   }
 

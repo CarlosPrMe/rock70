@@ -46,7 +46,7 @@
 
     <div class="form__group">
         <input formControlName="video" type="text" class="form__input" id="video"
-            placeholder="Vídeo tipo embebido (https://www.youtube.com/embed/...)">
+            placeholder="Formato embebido (https://www.youtube.com/embed/...)">
         <div class="error__msg"
             *ngIf="myForm.controls.video.value.length > 0 && myForm.controls.video?.errors?.urlCustom">
             <span class="error__text">* Formato incorrecto. Ej: https://www.youtube.com/embed/8556cds8 *</span>

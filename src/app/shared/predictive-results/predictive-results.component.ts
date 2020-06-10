@@ -1,4 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { BandModel } from 'src/app/models/band.model';
 
 @Component({
   selector: 'app-predictive-results',
@@ -7,11 +8,16 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class PredictiveResultsComponent implements OnInit {
 
-
-  @Input('show') show: boolean;
+  @Input('bands') bands: Array<BandModel>;
+  @Output() navigate = new EventEmitter<number>()
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  public navigation(event, id) {
+    event.preventDefault();
+    this.navigate.emit(id);
   }
 
 }

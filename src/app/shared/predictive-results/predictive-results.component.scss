@@ -1,14 +1,10 @@
 @import '../../../assets/scss/partials/vars';
 
 .predictive-results {
-    margin-top: -3.8rem;
+    margin-top: -3.5rem;
     position: relative;
     z-index: $top;
-    display: none;
-
-    &--show {
-        display: block;
-    }
+    display: block;
 
     &__list {
         @include customScrollBar($primary, $primary, $gray-200, .8rem, .8rem, .5rem, 0);

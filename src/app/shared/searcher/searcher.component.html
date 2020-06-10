@@ -12,7 +12,7 @@
                         placeholder="Nombre del grupo">
                 </div>
             </form>
-            <app-predictive-results [show]="show"></app-predictive-results>
+            <app-predictive-results (navigate)="onNavigate($event)" [bands]="bands"></app-predictive-results>
         </div>
     </div>
 

@@ -1,19 +1,7 @@
-<div class="predictive-results" [ngClass]="{'predictive-results--show':show }">
+<div class="predictive-results" *ngIf="bands?.length">
     <ul class="predictive-results__list">
-        <li class="predictive-results__item">
-            <a href="" class="predictive-results__link">Jimi hendrix</a>
+        <li class="predictive-results__item" *ngFor="let band of bands">
+            <a href="#" class="predictive-results__link" [routerLink]="['/band',band.id]" (click)="navigation($event, band.id)">{{band.name}}</a>
         </li>
-        <!-- <li class="predictive-results__item">
-            <a href="" class="predictive-results__link">hola</a>
-        </li>
-        <li class="predictive-results__item">
-            <a href="" class="predictive-results__link">hola</a>
-        </li>
-        <li class="predictive-results__item">
-            <a href="" class="predictive-results__link">hola</a>
-        </li>
-        <li class="predictive-results__item">
-            <a href="" class="predictive-results__link">hola</a>
-        </li> -->
     </ul>
 </div>

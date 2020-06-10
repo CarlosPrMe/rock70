@@ -14,11 +14,11 @@ import { PredictiveResultsComponent } from './shared/predictive-results/predicti
 import { AddBandPageComponent } from './pages/add-band-page/add-band-page.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { FormBandComponent } from './shared/form-band/form-band.component';
+import { ScrollTopComponent } from './shared/scroll-top/scroll-top.component';
 
 // Interceptors
 import { SpinnerInterceptorService } from './interceptors/spinner-interceptor.service';
-import { FormBandComponent } from './shared/form-band/form-band.component';
-import { ScrollTopComponent } from './shared/scroll-top/scroll-top.component';
 
 @NgModule({
   declarations: [
