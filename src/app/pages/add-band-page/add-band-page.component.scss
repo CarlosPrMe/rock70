@@ -1,0 +1,7 @@
+@import "../../../assets/scss/partials/vars";
+
+.register {
+    @include desktop {
+        padding-top: 18rem;
+    }
+}
