@@ -4,7 +4,7 @@ import { BandModel } from 'src/app/models/band.model';
 import { MockService } from 'src/app/services/mockService.service';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { BandsService } from 'src/app/services/bands.service';
-
+import swal from 'sweetalert2';
 @Component({
   selector: 'app-detail-band-page',
   templateUrl: './detail-band-page.component.html',
@@ -50,14 +50,31 @@ export class DetailBandPageComponent implements OnInit {
   }
 
   public deleteBand(id) {
-    this._confirmDelete = confirm('¿Seguro que quieres eliminar el grupo?');
-    if (this._confirmDelete) {
-      this._bandsService.deleteBand(id).subscribe(res => {
-        alert('Banda eliminada con éxito');
-        this._router.navigate(['/home']);
-      }, err => {
-        alert('Hubo un error al eliminar la banda');
-      })
-    }
+    swal.fire({
+      title: '¿Eliminar banda?',
+      text: "¿Seguro que quieres eliminar el grupo?",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#119e32',
+      cancelButtonColor: '#be1e1e',
+      confirmButtonText: 'Eliminar'
+    }).then((result) => {
+      if (result.value) {
+        this._bandsService.deleteBand(id).subscribe(res => {
+          swal.fire(
+            'Eliminado!',
+            'La banda se ha eliminado.',
+            'success'
+          )
+          this._router.navigate(['/home']);
+        }, err => {
+          swal.fire({
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Hubo un error!'
+          })
+        })
+      }
+    })
   }
 }
