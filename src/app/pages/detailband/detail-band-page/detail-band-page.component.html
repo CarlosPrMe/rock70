@@ -19,8 +19,8 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-4">
                             <h3 class="details__subtitle h2">Miembros</h3>
-                            <ul class="details__list">
-                                <li class="details__list-item" *ngFor="let member of band.members">
+                            <ul class="details__list row">
+                                <li class="col-xs-12 col-sm-6 col-md-12 details__list-item" *ngFor="let member of band.members">
                                     <span class="details__data">{{member.name}}</span>
                                     <span class="details__data">{{member.sur_name}}</span>
                                     <img class="details__avatar" src="{{member.image}}" alt="image of {{member.name}}">
@@ -35,8 +35,8 @@
                     <div class="row">
                         <div class="col-xs-12 col-md-6 col-lg-4">
                             <h3 class="details__subtitle details__subtitle--ligth h2">Discografía</h3>
-                            <ul class="details__list" [ngClass]="{'details__list--limited': band.discography.length > 3 && !showDetails}">
-                                <li class="details__list-item" *ngFor="let album of band.discography">
+                            <ul class="details__list row" [ngClass]="{'details__list--limited': band.discography.length > 3 && !showDetails}">
+                                <li class="col-xs-12 col-sm-6 col-md-12 details__list-item" *ngFor="let album of band.discography">
                                     <img class="details__img" src="{{album.cover}}"
                                         alt="album of {{band}} titled {{album.name}}">
                                     <span class="details__data">{{album.name}} - ( {{album.year}} )</span>
