@@ -64,6 +64,7 @@ main {
 
     &__list {
         position: relative;
+        margin: 0;
         &--limited {
             height: 38rem;
             overflow: hidden;

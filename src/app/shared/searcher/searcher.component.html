@@ -1,5 +1,5 @@
 <div class="searcher" [ngClass]="{'searcher--show':show, 'searcher--fixed': !atHomePage}">
-    <div class="searcher__content">
+    <div class="searcher__content" #content>
         <button type="button" class="btn searcher__btn" title="show searcher"
             (click)="showInput()">
             <span class="searcher__text">Busca una banda</span>

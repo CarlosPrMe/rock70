@@ -57,8 +57,7 @@ export class FormBandComponent implements OnInit {
 
   public removeMember() {
     let index = this.members.length - 1;
-    console.log(index);
-    this.members.removeAt(index)
+    this.members.removeAt(index);
   }
 
   public addAlbum() {
@@ -73,8 +72,7 @@ export class FormBandComponent implements OnInit {
 
   public removeAlbum() {
     let index = this.discography.length - 1;
-    console.log(index);
-    this.discography.removeAt(index)
+    this.discography.removeAt(index);
   }
 
   public submit(form) {
