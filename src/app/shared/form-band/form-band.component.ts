@@ -76,7 +76,6 @@ export class FormBandComponent implements OnInit {
   }
 
   public submit(form) {
-    debugger
     this.newBand.emit(form);
     this.myForm.reset();
   }
