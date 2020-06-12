@@ -28,10 +28,14 @@
             background-color: $transparent;
             box-shadow: none;
             overflow: hidden;
-            height: 0;
+            height: auto;
             padding: 0;
             position: relative;
             transform: translateY(0);
+            .form {
+                height: 0;
+                transition: all $normal ease;
+            }
         }
     }
 
@@ -43,7 +47,7 @@
         right: 1rem;
         top: 2.5rem;
         background-color: rgba($gray-600, 0.5);
-        z-index: $top+1;
+        z-index: $top + 1;
 
         &:active {
             color: $gray-800;
