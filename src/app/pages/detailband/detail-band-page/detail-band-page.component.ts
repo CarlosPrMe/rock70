@@ -57,7 +57,8 @@ export class DetailBandPageComponent implements OnInit {
       showCancelButton: true,
       confirmButtonColor: '#119e32',
       cancelButtonColor: '#be1e1e',
-      confirmButtonText: 'Eliminar'
+      confirmButtonText: 'Eliminar',
+      cancelButtonText: 'Cancelar'
     }).then((result) => {
       if (result.value) {
         this._bandsService.deleteBand(id).subscribe(res => {
