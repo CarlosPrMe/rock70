@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, HostListener, ViewChild, ElementRef } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { pipe, of } from 'rxjs';
 import { debounceTime, distinctUntilChanged, map, switchMap, filter } from 'rxjs/operators';
@@ -16,6 +16,7 @@ export class SearcherComponent implements OnInit {
   public myForm: FormGroup;
   public bands;
   @Input() atHomePage: boolean;
+  @ViewChild('content') content: ElementRef;
   constructor(private _fb: FormBuilder, private _bandsService: BandsService, private _router: Router) { }
 
   ngOnInit(): void {
@@ -35,10 +36,17 @@ export class SearcherComponent implements OnInit {
       )
       .subscribe((bands) => {
         this.bands = bands;
-        console.log('this.bands', this.bands);
       }, (error) => {
         console.log('error', error);
       })
+  }
+
+  @HostListener('document:click', ['$event'])
+  click(event) {
+    if (this.show && !this.content.nativeElement.contains(event.target)) {
+      this.showInput();
+    }
+
   }
 
   public showInput() {

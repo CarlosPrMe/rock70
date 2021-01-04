@@ -42,7 +42,7 @@ main {
             color: $white;
         }
 
-        &--both-colors{
+        &--both-colors {
             color: $white;
 
             @include tablet {
@@ -64,6 +64,7 @@ main {
 
     &__list {
         position: relative;
+        margin: 0 0 4rem 0;
         &--limited {
             height: 38rem;
             overflow: hidden;
@@ -97,20 +98,96 @@ main {
         & + & {
             border-top: 0.1rem solid $gray-200;
         }
+
+        @include mobile {
+            & + & {
+                border-top: 0;
+            }
+
+            &:nth-child(1n + 3) {
+                border-top: 0.1rem solid $gray-200;
+            }
+
+            &:nth-child(odd){
+                padding-right: 2rem;
+            }
+
+            &:nth-child(even){
+                padding-left: 1rem;
+                position: relative;
+
+                &::before {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 15%;
+                    left: -.5rem;
+                    height: 70%;
+                    width: 0.1rem;
+                    background-color: $gray-200;
+                }
+            }
+
+            &:nth-child(1n + 3) {
+                position: relative;
+                &::after {
+                    content: "";
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    height: .1rem;
+                    width: 100%;
+                    background-color: $gray-200;
+                }
+            }
+        }
+
+        @include tablet {
+            & + & {
+                border-top: 0.1rem solid $gray-200;
+            }
+            
+            &:nth-child(odd){
+                padding-right: 0;
+            }
+
+            &:nth-child(even){
+                padding-left: 0;
+                
+                &::before {
+                    content: none;
+                }
+            }
+
+            &:nth-child(2n + 2) {
+                position: static;
+                padding-left: 0;
+                &::before {
+                    content: none;
+                }
+            }
+        }
     }
 
     &__avatar {
-        display: inline-block;
-        margin-left: auto;
-        max-width: 4rem;
         border-radius: 100%;
         border: 0.1rem solid $gray-300;
+        display: inline-block;
+        height: 6rem;
+        margin-left: auto;
+        object-fit: cover;
+        object-position: top;
+        width: 6rem;
     }
 
     &__img {
         display: inline-block;
-        width: 30%;
+        height: 8rem;
         margin-right: 1rem;
+        object-fit: cover;
+        object-position: center;
+        width: 8rem;
     }
 
     &__btn {
@@ -146,7 +223,7 @@ main {
         display: flex;
         flex-direction: center;
         box-shadow: 0 0 1rem rgba($black, 0.2);
-        
+
         @include desktop {
             flex-direction: row-reverse;
         }

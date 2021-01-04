@@ -4,8 +4,9 @@
         <input formControlName="name" type="text" class="form__input" id="name" placeholder="Nombre del grupo" required
             [ngClass]="{'error':myForm.controls.name.dirty && !myForm.controls.name.valid }">
         <div class="error__msg" *ngIf="myForm.controls.name.dirty && !myForm.controls.name.valid">
-            <span *ngIf="myForm.controls.name.errors.required" class="error__text"> * El campo es
-                obligatorio *</span>
+            <span *ngIf="myForm.controls.name.errors.required" class="error__text"><span class="icon icon-fire"></span>
+                El campo es
+                obligatorio <span class="icon icon-fire"></span></span>
         </div>
     </div>
     <div class="form__group">
@@ -14,18 +15,20 @@
 
         <div class="error__msg"
             *ngIf="myForm.controls.logo.value.length > 0 && myForm.controls.logo?.errors?.urlCustom || myForm.controls.logo.value.length > 0 && myForm.controls.logo?.errors?.imageFormat">
-            <span class="error__text">* El formato <span *ngIf="myForm.controls.logo?.errors?.imageFormat"> de la
+            <span class="error__text"><span class="icon icon-fire"></span> El formato <span
+                    *ngIf="myForm.controls.logo?.errors?.imageFormat"> de la
                     imagen </span> es
-                incorrecto *</span>
+                incorrecto <span class="icon icon-fire"></span></span>
         </div>
     </div>
     <div class="form__group">
         <input formControlName="image" type="text" class="form__input" id="image" placeholder="Foto de la banda (url)">
         <div class="error__msg"
             *ngIf="myForm.controls.image.value.length > 0 && myForm.controls.image?.errors?.urlCustom || myForm.controls.image.value.length > 0 && myForm.controls.image?.errors?.imageFormat">
-            <span class="error__text">* El formato <span *ngIf="myForm.controls.image?.errors?.imageFormat"> de la
+            <span class="error__text"><span class="icon icon-fire"></span> El formato <span
+                    *ngIf="myForm.controls.image?.errors?.imageFormat"> de la
                     imagen </span> es
-                incorrecto *</span>
+                incorrecto <span class="icon icon-fire"></span></span>
         </div>
     </div>
     <div class="form__group">
@@ -33,12 +36,14 @@
             placeholder="Biografia" required minlength="300"
             [ngClass]="{'error':myForm.controls.bio.dirty && !myForm.controls.bio.valid || myForm.controls.bio.dirty && myForm.controls.bio.errors?.minlength }"></textarea>
         <div class="error__msg" *ngIf="myForm.controls.bio.dirty && !myForm.controls.bio.valid">
-            <span *ngIf="myForm.controls.bio.errors.required" class="error__text"> * El campo es
-                obligatorio *</span>
+            <span *ngIf="myForm.controls.bio.errors.required" class="error__text"><span class="icon icon-fire"></span>
+                El campo es
+                obligatorio <span class="icon icon-fire"></span></span>
         </div>
         <div class="error__msg"
             *ngIf="myForm.controls.bio.dirty && myForm.controls.bio.value.length > 0 && myForm.controls.bio.errors?.minlength">
-            <span *ngIf="myForm.controls.bio.errors.minlength" class="error__text"> * Mínimo 300 caracteres *</span>
+            <span *ngIf="myForm.controls.bio.errors.minlength" class="error__text"><span class="icon icon-fire"></span>
+                Mínimo 300 caracteres <span class="icon icon-fire"></span></span>
         </div>
     </div>
     <div class="form__group">
@@ -46,43 +51,132 @@
             placeholder="Formato embebido (https://www.youtube.com/embed/...)">
         <div class="error__msg"
             *ngIf="myForm.controls.video.value.length > 0 && myForm.controls.video?.errors?.urlCustom">
-            <span class="error__text">* Formato incorrecto. Ej: https://www.youtube.com/embed/8556cds8 *</span>
+            <span class="error__text"><span class="icon icon-fire"></span> Formato incorrecto. Ej:
+                https://www.youtube.com/embed/8556cds8 <span class="icon icon-fire"></span></span>
         </div>
     </div>
     <h2 class="form__subtitle">Miembros</h2>
     <div class="form__array" formArrayName="members">
         <div class="form__array-item" *ngFor="let member of members.controls; let i=index">
-            <ng-container [formGroupName]="i">
-                <div class="form__group">
-                    <input formControlName="name" type="text" class="form__input" placeholder="Nombre del músico">
-                </div>
-                <div class="form__group">
-                    <input formControlName="sur_name" type="text" class="form__input" placeholder="Apellidos">
+            <ng-container [formGroupName]="i" class="row">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form__group">
+                            <input formControlName="name" type="text" class="form__input"
+                                placeholder="Nombre del músico"
+                                [ngClass]="{'error': member.controls.name.dirty && !member.controls.name.valid}">
+                            <div class="error__msg" *ngIf="member.controls.name.dirty && !member.controls.name.valid">
+                                <span class="error__text"> <span class="icon icon-fire"></span> El campo es
+                                    obligatorio <span class="icon icon-fire"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form__group">
+                            <input formControlName="sur_name" type="text" class="form__input" placeholder="Apellidos"
+                                [ngClass]="{'error': member.controls.sur_name.dirty && !member.controls.sur_name.valid}">
+                            <div class="error__msg"
+                                *ngIf="member.controls.sur_name.dirty && !member.controls.sur_name.valid">
+                                <span class="error__text"><span class="icon icon-fire"></span> El campo es
+                                    obligatorio <span class="icon icon-fire"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form__group">
+                            <input formControlName="image" type="text" class="form__input" placeholder="Foto músico"
+                                [ngClass]="{'error': member.controls.image.dirty && !member.controls.image.valid}">
+                            <div class="error__msg"
+                                *ngIf="member.controls.image.value.length > 0 && member.controls.image?.errors?.urlCustom || member.controls.image.value.length > 0 && member.controls.image?.errors?.imageFormat">
+                                <span class="error__text"><span class="icon icon-fire"></span> El formato <span
+                                        *ngIf="member.controls.image?.errors?.imageFormat"> de la
+                                        imagen </span> es
+                                    incorrecto <span class="icon icon-fire"></span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </ng-container>
         </div>
-        <div class="form__group">
-            <button type="button" class="btn btn--secondary" (click)="addMemmber()">Añadir</button>
+        <div class="row">
+            <ng-container *ngFor="let member of members.controls">
+                <div class="col-xs-6 col-sm-4" *ngIf="member.controls?.image?.value && !member.controls.image?.errors?.urlCustom && !member.controls.image?.errors?.imageFormat">
+                    <img class="image" src="{{member.controls?.image?.value}}" alt="">
+                </div>
+            </ng-container>
+        </div>
+        <div class="form__group form__group--flex">
+            <button [disabled]="members.controls.length <=1" type="button" class="btn btn--secondary"
+                (click)="removeMember()">
+                <span class="icon icon-cross"></span>
+                <span class="btn__text">Eliminar</span>
+            </button>
+            <button type="button" class="btn btn--secondary" (click)="addMemmber()">
+                <span class="icon icon-plus"></span>
+                <span class="btn__text">Añadir</span></button>
         </div>
     </div>
     <h2 class="form__subtitle">Discos</h2>
     <div class="form__array" formArrayName="discography">
         <div class="form__array-item" *ngFor="let member of discography.controls; let i=index">
             <ng-container [formGroupName]="i">
-                <div class="form__group">
-                    <input formControlName="name" type="text" class="form__input" placeholder="Titulo álbum">
-                </div>
-                <div class="form__group">
-                    <input formControlName="year" type="number" class="form__input" placeholder="Año">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form__group">
+                            <input formControlName="name" type="text" class="form__input" placeholder="Titulo álbum"
+                                [ngClass]="{'error': member.controls.name.dirty && !member.controls.name.valid}">
+                            <div class="error__msg" *ngIf="member.controls.name.dirty && !member.controls.name.valid">
+                                <span class="error__text"><span class="icon icon-fire"></span> El campo es
+                                    obligatorio <span class="icon icon-fire"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form__group">
+                            <input formControlName="year" type="number" class="form__input" placeholder="Año"
+                                [ngClass]="{'error': member.controls.year.dirty && !member.controls.year.valid}">
+                            <div class="error__msg" *ngIf="member.controls.year.dirty && !member.controls.year.valid">
+                                <span class="error__text"><span class="icon icon-fire"></span> El campo es
+                                    obligatorio <span class="icon icon-fire"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-6">
+                        <div class="form__group">
+                            <input formControlName="cover" type="text" class="form__input" placeholder="Portada del álbum"
+                                [ngClass]="{'error': member.controls.cover.dirty && !member.controls.cover.valid}">
+                            <div class="error__msg"
+                                *ngIf="member.controls.cover.value.length > 0 && member.controls.cover?.errors?.urlCustom || member.controls.cover.value.length > 0 && member.controls.cover?.errors?.imageFormat">
+                                <span class="error__text"><span class="icon icon-fire"></span> El formato <span
+                                        *ngIf="member.controls.cover?.errors?.imageFormat"> de la
+                                        imagen </span> es
+                                    incorrecto <span class="icon icon-fire"></span></span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </ng-container>
         </div>
-        <div class="form__group">
-            <button type="button" class="btn btn--secondary" (click)="addAlbum()">Añadir</button>
+        <div class="row">
+            <ng-container *ngFor="let album of discography.controls">
+                <div class="col-xs-6 col-sm-4" *ngIf="album.controls?.cover?.value && !album.controls.cover?.errors?.urlCustom && !album.controls.cover?.errors?.imageFormat">
+                    <img class="image image--cover" src="{{album.controls?.cover?.value}}" alt="">
+                </div>
+            </ng-container>
+        </div>
+        <div class="form__group form__group--flex">
+            <button [disabled]="discography.controls.length <=1" type="button" class="btn btn--secondary"
+                (click)="removeAlbum()">
+                <span class="icon icon-cross"></span>
+                <span class="btn__text">Eliminar</span>
+            </button>
+            <button type="button" class="btn btn--secondary" (click)="addAlbum()">
+                <span class="icon icon-plus"></span>
+                <span class="btn__text">Añadir</span>
+            </button>
         </div>
     </div>
     <div class="form__group form__group--btn">
-        <button type="button" class="btn btn--primary" [disabled]="!myForm.valid"
-            (click)="submit(myForm.value)">Enviar</button>
+        <button type="button" class="btn btn--primary" (click)="submit(myForm.value)" [disabled]="!myForm.valid">Enviar</button>
     </div>
 </form>

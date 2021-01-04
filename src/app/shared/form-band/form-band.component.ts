@@ -24,14 +24,16 @@ export class FormBandComponent implements OnInit {
       video: ['', Validators.compose([customValidatorUrl])],
       members: this._fb.array([
         this._fb.group({
-          name: [''],
-          sur_name: [''],
+          name: ['', Validators.required],
+          sur_name: ['', Validators.required],
+          image: ['',Validators.compose([customValidatorUrl,customValidatorImage])]
         })
       ]),
       discography: this._fb.array([
         this._fb.group({
           name: ['', Validators.required],
-          year: ['', Validators.required]
+          year: ['', Validators.required],
+          cover:['',Validators.compose([customValidatorUrl,customValidatorImage])]
         })
       ])
     })
@@ -40,7 +42,7 @@ export class FormBandComponent implements OnInit {
   get members() {
     return this.myForm.get('members') as FormArray;
   }
-  
+
   get discography() {
     return this.myForm.get('discography') as FormArray;
   }
@@ -49,16 +51,28 @@ export class FormBandComponent implements OnInit {
     this.members.push(this._fb.group({
       name: [''],
       sur_name: [''],
+      image: ['',Validators.compose([customValidatorUrl,customValidatorImage])]
     }));
+  }
+
+  public removeMember() {
+    let index = this.members.length - 1;
+    this.members.removeAt(index);
   }
 
   public addAlbum() {
     this.discography.push(
       this._fb.group({
         name: [''],
-        year: ['']
+        year: [''],
+        cover:['',Validators.compose([customValidatorUrl,customValidatorImage])]
       })
     );
+  }
+
+  public removeAlbum() {
+    let index = this.discography.length - 1;
+    this.discography.removeAt(index);
   }
 
   public submit(form) {
